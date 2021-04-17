@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import Dashboard from "./Components/Dashboard";
 
-function App() {
+
+const App = () => {
+  const [token, setToken] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path= "/" exact> <Dashboard token = {token} /> </Route>
+          <Route path= "/login" component={Login}/>
+          <Route path= "/register" component={Register}/>
+        </Switch>
+        
+      </div>
+    </Router>
   );
 }
 
