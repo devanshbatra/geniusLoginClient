@@ -7,17 +7,18 @@ const Dashboard = ({ token }) => {
     const [err, setErr] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost/user',{credentials: "include"})
-            .then(response => setErr(response.status));
-    
+            fetch('http://localhost/user',{credentials: "include"})
+                .then(response => setErr(response.status))
+                .catch(error=> setErr(400));
     }, []);
-    if(err==400 || err==401) return <Redirect to="/login?message='You need to login first!'" />
-    return (
-        <div className="Dashboard">
-            <Navbar/>
-            <Maincont/>
-        </div>
-    );
+    if(err==400 || err==401) return <Redirect to="/login?message='You need to login first!'" />;
+        return (
+            <div className="Dashboard">
+                <Navbar/>
+                <Maincont/>
+            </div>
+        );
+    
 }
 
 export default Dashboard;

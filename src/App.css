@@ -49,9 +49,6 @@
   border-bottom: 2px solid #414a4d;
   transition: all 0.3s ease;
 }
-.input-field::placeholder{
-  /* align-content: center; */
-}
 .input-field:focus{
   border-bottom: 2px solid var(--theme-color);
 }
@@ -154,7 +151,7 @@
   top: 0;
   left: 0;
   background-color: #1a3038;
-  width: 15%;
+  width: 22%;
   height: 100vh;
   z-index: 10;
   display: flex;

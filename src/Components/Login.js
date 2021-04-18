@@ -10,7 +10,6 @@ const Login = ({ location }) => {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        console.log(location);
         const { message } = queryString.parse(location.search);
         setErr(message);
     }, [email, password]);
